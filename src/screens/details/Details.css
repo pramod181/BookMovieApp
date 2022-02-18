@@ -1,0 +1,31 @@
+.backToHome{
+    margin: 24px 8px 0px 24px ;
+    cursor: pointer;
+}
+.detailsFlexContainor{
+    display: flex;
+}
+.detailsLeft{
+    width: 20%;
+}
+.detailsRight{
+    width: 20%;
+}
+.detailsMiddle{
+    width: 60%;
+
+}
+.wikiLink{
+    margin-top: 16px;
+    padding-right: 20px;
+}
+.videoLink{
+    margin-top: 16px;
+}
+.bold {
+    font-weight: bold;
+}
+.artists{
+    margin-top: 16px;
+    margin-bottom: 16px;
+}

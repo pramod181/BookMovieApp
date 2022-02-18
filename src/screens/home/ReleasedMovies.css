@@ -1,0 +1,15 @@
+.releasedMoviesContainor{
+    display: flex;
+}
+
+.releasedMoviesContainor >div{
+    margin: 16px;
+}
+
+.releasedMovie{
+    width: 76%;
+}
+
+.releasedMovieFilter{
+    width: 24%;
+}

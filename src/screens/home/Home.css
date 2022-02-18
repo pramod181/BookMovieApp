@@ -1,0 +1,17 @@
+.homeHeading{
+    background-color: #ff9999;
+    padding: 8px;
+    text-align: center;
+    font-size: 1rem;
+
+}
+
+.leftGrid{
+    float: left;
+    width: 76%;
+}
+
+.rightGrid{
+    float: right;
+    width: auto;
+}

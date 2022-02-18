@@ -1,5 +1,8 @@
-import React from "react"
-import Header from "../../common/header/Header"
+import React from "react";
+import Header from "../../common/header/Header";
+import './Home.css';
+import UpcomingMoviesTile from "./UpcomingMoviesTile";
+import ReleasedMovies from "./ReleasedMovies";
 
 export default function Home(props) {
     return (
@@ -7,11 +10,19 @@ export default function Home(props) {
             <div>
                 <Header enablebooking={true} />
             </div>
+            <div className="homeHeading">
+                Upcoming Movies
+            </div>
+            {/* Upcoming movies Grid */}
             <div>
-                Home
+                <UpcomingMoviesTile {...props} />
             </div>
 
-        </div>
+            <div>
+                <ReleasedMovies />
+            </div>
+
+        </div >
 
     )
 }
