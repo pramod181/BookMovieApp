@@ -32,3 +32,19 @@
     padding-left: 8px;
     margin: 2px 10px 2px 10px;
 }
+
+.tabs {
+    margin-bottom: 20px;
+  }
+  
+  .dispNone {
+    display: none;
+  }
+  
+  .dispBlock {
+    display: block;
+  }
+  
+  .red {
+    color: red;
+  }

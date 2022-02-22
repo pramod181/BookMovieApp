@@ -60,7 +60,7 @@ export default function DetailsPage(params) {
     return (
         <Fragment>
             <div>
-                <Header isLoggedIn={isLoggedIn} enableBooking={true}></Header>
+                <Header {...params} isLoggedIn={isLoggedIn} enableBooking={true} id={movieID}></Header>
             </div>
             <div className="backToHome">
                 <Typography>

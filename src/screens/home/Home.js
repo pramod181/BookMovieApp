@@ -8,7 +8,7 @@ export default function Home(props) {
     return (
         <div>
             <div>
-                <Header enablebooking={true} />
+                <Header {...props} enablebooking={false} />
             </div>
             <div className="homeHeading">
                 Upcoming Movies
