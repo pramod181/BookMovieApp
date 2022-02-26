@@ -63,6 +63,7 @@ export default function Header(props) {
     const [registrationSuccess, setRegistrationSuccess] = useState(false);
 
     const history = useHistory();
+    const ariaHideApp = false;
 
 
     // Parameters/functions for Modal
@@ -90,38 +91,32 @@ export default function Header(props) {
 
 
     // LogOut Handler
-    async function logoutClickHandler(){
-
-        const headers = {
-            'Content-Type': 'application/json',
-            'Cache-Control': "no-cache",
-            Authorization : "Bearer " + sessionStorage.getItem("access-token")
-        }
-        console.log(headers);
+    const logoutClickHandler = async()=>{
 
         try {
-            console.log('Bearer ' + sessionStorage.getItem("access-token"));
-            const rawResponse = await fetch('http://localhost:8085/api/v1/auth/logout', {
+            fetch('http://localhost:8085/api/v1/auth/logout', {
                 method: 'POST',
-                headers: {headers}
-            });
-
-            const result = await rawResponse.json();
-
-            if (rawResponse.ok) {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Cache-Control': "no-cache",
+                    Authorization : "Bearer " + sessionStorage.getItem("access-token")
+                }
+            }).then((rawResponse)=>{
                 window.sessionStorage.removeItem("user-details");
                 window.sessionStorage.removeItem("access-token");
                 setIsLoggedIn(false);
-            } else {
+            }).catch((e)=>{
                 const error = new Error();
-                error.message = result.message || 'Something went wrong';
+                error.message = 'Something went wrong';
                 throw error;
-            }
+            });
 
         } catch (e) {
+
             alert('Error: ' + e.message);
+            console.log(e);
         }
-    }
+    };
 
     // Login Handler
     const inputUsernameChangeHandler = (e) => {
@@ -279,9 +274,10 @@ export default function Header(props) {
 
                 {/* Display Login/LogOut button as per login status */}
                 {isloggedIn ?
-                    <Button className="btn" variant="contained" size="small" onClick={logoutClickHandler}>LOGOUT</Button> :
-                    <Button className="btn" variant="contained" size="small" onClick={openModal}>LOGIN</Button>
+                    <Button className="btn" variant="contained" size="small" style={{margin : "2px 10px"}} onClick={logoutClickHandler}>LOGOUT</Button> :
+                    <Button className="btn" variant="contained" size="small" style={{margin : "2px 10px"}} onClick={openModal}>LOGIN</Button>
                 }
+                
 
                 <Modal
                     isOpen={modalIsOpen}
@@ -289,6 +285,7 @@ export default function Header(props) {
                     onRequestClose={closeModal}
                     style={customStyles}
                     contentLabel="Example Modal"
+                    ariaHideApp = {ariaHideApp}
                 >
                     <div >
                         <Tabs value={value} onChange={handleChange} >
@@ -386,13 +383,13 @@ export default function Header(props) {
 
                 {/* Display BookShow button if enabled and user is loggedin to book movie*/}
                 {enableBooking && isloggedIn ?
-                    <Button className="btn" variant="contained" color="primary" size="small" onClick={bookingHandler}>BOOK SHOW</Button> :
+                    <Button className="btn" variant="contained" color="primary" size="small" style={{margin : "2px 10px"}} onClick={bookingHandler}>BOOK SHOW</Button> :
                     <div> </div>
                 }
 
                 {/* Display BookShow button if enabled for guest user to navigate to signup page */}
                 {enableBooking && !isloggedIn ?
-                    <Button className="btn" variant="contained" color="primary" size="small" onClick={guestBookingHandler}>BOOK SHOW</Button> :
+                    <Button className="btn" variant="contained" color="primary" size="small" style={{margin : "2px 10px"}} onClick={guestBookingHandler}>BOOK SHOW</Button> :
                     <div> </div>
                 }
 

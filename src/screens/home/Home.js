@@ -18,6 +18,7 @@ export default function Home(props) {
                 <UpcomingMoviesTile {...props} />
             </div>
 
+            {/* Released movies Grid */}
             <div>
                 <ReleasedMovies />
             </div>

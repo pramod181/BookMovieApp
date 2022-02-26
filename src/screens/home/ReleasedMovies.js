@@ -47,23 +47,6 @@ const styles = theme => ({
     }
 });
 
-/**
- * The example data is structured as follows:
- *
- * import image from 'path/to/image.jpg';
- * [etc...]
- *
- * const movieData = [
- *   {
- *     img: image,
- *     title: 'Image',
- *     author: 'author',
- *   },
- *   {
- *     [etc...]
- *   },
- * ];
- */
 function ReleasedMovies(props) {
     const { classes } = props;
     const history = useHistory();
@@ -79,7 +62,6 @@ function ReleasedMovies(props) {
 
 
     async function ReleasedMoviesList(queryString) {
-        const url1 = "http://localhost:8085/api/v1/movies"+queryString;
         const url = "http://localhost:8085/api/v1/movies?status=RELEASED";
         const rawResponse = await fetch(url);
         const data = await rawResponse.json();
@@ -106,8 +88,6 @@ function ReleasedMovies(props) {
         ReleasedMoviesList();
         GenresList();
         ArtistsList();
-        // const queryString="?status=RELEASED";
-        // ReleasedMoviesList(queryString);
     }, []);
 
     // for filter list

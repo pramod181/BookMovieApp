@@ -10,15 +10,6 @@ import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 
 
-const styles = () => ({
-    opts: {
-        height: '300',
-        width: '700',
-        playerVars: {
-            autoplay: 1
-        }
-    }
-});
 
 const opts = {
     height: '300',
@@ -30,12 +21,15 @@ const opts = {
 
 export default function DetailsPage(params) {
 
-    const [isLoggedIn, setIsLoggedIn] = useState(true);
-    const [movieID, setMovieID] = useState(params.match.params.id);
+    // const [isLoggedIn, setIsLoggedIn] = useState(true);
+    // const [movieID, setMovieID] = useState(params.match.params.id);
     const [movie, setMovie] = useState("");
     const [trailerUrl, setTrailerUrl] = useState("");
     const [genres, setGenres] = useState("");
     const [artists, setArtists] = useState([]);
+
+    const isLoggedIn = true;
+    const movieID = params.match.params.id
 
   
 

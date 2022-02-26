@@ -32,23 +32,6 @@ const styles = theme => ({
   },
 });
 
-/**
- * The example data is structured as follows:
- *
- * import image from 'path/to/image.jpg';
- * [etc...]
- *
- * const moviesList = [
- *   {
- *     img: image,
- *     title: 'Image',
- *     author: 'author',
- *   },
- *   {
- *     [etc...]
- *   },
- * ];
- */
 function UpComingMovies(props) {
   const { classes } = props;
 
@@ -74,15 +57,6 @@ function UpComingMovies(props) {
             <img src={tile.poster_url} alt={tile.title} style={{height:"auto", width:"100%"}}/>
             <GridListTileBar
               title={tile.title}
-              // classes={{
-              //   root: classes.titleBar,
-              //   title: classes.title,
-              // }}
-              // actionIcon={
-              //   <IconButton>
-              //     <StarBorderIcon className={classes.title} />
-              //   </IconButton>
-              // }
             />
           </GridListTile>
         ))}
@@ -96,4 +70,3 @@ UpComingMovies.propTypes = {
 };
 
 export default withStyles(styles)(UpComingMovies);
-// export default UpComingMovies;
